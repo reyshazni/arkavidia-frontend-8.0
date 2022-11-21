@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  frontend:
+    image: reyshazni/coba3
+    ports:
+      - "80:80"
+    volumes:
+      - ./etc/letsencrypt/live/boi.arkavidia.com:/usr/share/certbot
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./etc/letsencrypt/live/boi.arkavidia.com:/usr/share/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"

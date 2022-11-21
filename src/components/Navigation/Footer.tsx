@@ -24,6 +24,7 @@ const logoStyle: { [key in logoVar]: string } = {
 
 interface logoProps {
   logoVariants: logoVar
+  children?: React.ReactNode
 }
 
 const Logo: React.FC<logoProps> = props => {
@@ -87,13 +88,14 @@ const Copyright = (): JSX.Element => {
 
 interface FooterProps {
   variant: Variants
+  children?: React.ReactNode
 }
 
 const variantStyle: { [key in Variants]: string } = {
-  redGeneral: 'bg-red200 w-[100%] h-[100%] mt-[1rem]',
-  yellowGeneral: 'bg-yellow400 w-[100%] h-[100%] mt-[1rem]',
-  redCompEvent: 'bg-red300 w-[100%] h-[100%] mt-[1rem]',
-  yellowCompEvent: 'bg-yellow400 max-w-[100%] w-[100%] h-[100%] mt-[1rem]'
+  redGeneral: 'bg-red200 w-[100%] h-[100%]',
+  yellowGeneral: 'bg-yellow400 w-[100%] h-[100%]',
+  redCompEvent: 'bg-red300 w-[100%] h-[100%]',
+  yellowCompEvent: 'bg-yellow400 max-w-[100%] w-[100%] h-[100%]'
 }
 
 const CompEventFooter: React.FC<FooterProps> = props => {
